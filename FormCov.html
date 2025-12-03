@@ -2,100 +2,133 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposer un Covoiturage - ESPRIT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPRIT Covoiturage - Gestion des Demandes</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif']
+                    },
+                    colors: {
+                        'teal-primary': '#4CA7A9',
+                        'teal-dark': '#3F8C8D',
+                        'teal-darker': '#0F2F2F',
+                        'bg-light': '#E7F1F1',
+                        'gray-text': '#5A7070'
+                    }
+                }
+            }
+        }
+    </script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            outfit: ['Outfit', 'sans-serif'],
-            roboto: ['Roboto', 'sans-serif'],
-          },
-          colors: {
-            'teal-primary': '#4CA7A9',
-            'teal-dark': '#3F8C8D',
-            'teal-darker': '#0F2F2F',
-            'bg-light': '#E7F1F1',
-            'gray-text': '#5A7070',
-          },
-        },
-      },
-    }
-  </script>
-
-  <style>
-    body { background-color: #E7F1F1; }
-    select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234CA7A9' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-    }
-  </style>
+    <style>
+        /* Assurer que bg-bg-light soit bien appliqué partout */
+        body {
+            background-color: #E7F1F1;
+        }
+    </style>
 </head>
 
-<body class="font-roboto bg-bg-light min-h-screen flex flex-col">
+<body class="bg-bg-light font-outfit min-h-screen flex flex-col">
 
-  <!-- ====================== HEADER CONNECTÉ (identique à ton exemple) ====================== -->
-  <header class="w-full bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+    <!-- HEADER IDENTIQUE À LA LANDING PAGE (version connectée) -->
+   <header class="w-full bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
-      <!-- Logo -->
-      <div class="flex items-center gap-4">
-        <div class="w-14 h-14">
-          <img src="style/assets/logo.jpg" alt="Logo ESPRIT Covoiturage" class="w-full h-full object-cover rounded-lg">
-        </div>
-        <div class="text-teal-darker text-2xl font-bold font-outfit">ESPRITCovoiturage</div>
-      </div>
-      <!-- Hamburger mobile -->
-      <button id="menu-btn" class="md:hidden p-2">
-        <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Menu Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-      <div class="px-6 py-6 space-y-6">
-        <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Proposer un trajet</a>
-        <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Les Propositions</a>
-        <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Mes Demandes</a>
-
-        <div class="pt-6 border-t border-gray-200">
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-14 h-14 bg-teal-primary rounded-full flex items-center justify-center text-white text-2xl font-bold">
-              M
+            <!-- Logo + Titre -->
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14">
+                    <img src="style/assets/logo.jpg" alt="Logo ESPRIT Covoiturage"
+                        class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="text-black text-2xl font-bold font-outfit">ESPRITCovoiturage</div>
             </div>
-            <div>
-              <div class="font-bold text-lg">Maram Boussalem</div>
-              <div class="text-sm text-gray-text">Conducteur</div>
-            </div>
-          </div>
-          <button class="w-full bg-teal-primary hover:bg-teal-dark text-black py-3 rounded-full font-semibold transition">
-            Déconnexion
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- Cercles flous décoratifs (comme dans ton exemple) -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute w-[1400px] h-[750px] bg-teal-dark opacity-30 rounded-full blur-3xl -top-40 -left-80"></div>
-    <div class="absolute w-96 h-96 bg-teal-primary opacity-20 rounded-full blur-3xl top-60 -right-32 hidden lg:block"></div>
-  </div>
+            <!-- Navigation Desktop -->
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="#" class="text-gray-text text-base font-medium hover:text-teal-primary transition">Proposer un
+                    trajet</a>
+                <a href="#" class="text-gray-text text-base font-medium hover:text-teal-primary transition">Les
+                    Propositions</a>
+                <a href="#" class="text-gray-text text-base font-medium hover:text-teal-primary transition">Mes
+                    Demandes</a>
+            </nav>
+
+            <!-- Profil + Déconnexion (desktop) -->
+            <div class="hidden lg:flex items-center gap-6">
+                <div class="flex items-center gap-3 px-5 py-2.5 border border-gray-300 rounded-full">
+                    <img src="style/assets/avatar.jpg" alt="Avatar Maram Bousalem" 
+                        class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <div class="font-semibold text-sm">Maram Bousalem</div>
+                        <div class="text-xs text-gray-text">Conducteur</div>
+                    </div>
+                </div>
+                <button
+                    class="bg-teal-primary hover:bg-teal-dark text-black font-semibold px-8 py-3 rounded-full transition">
+                    Déconnexion
+                </button>
+            </div>
+
+            <!-- Hamburger mobile -->
+            <button id="menu-btn" class="md:hidden p-2">
+                <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-6 py-6 space-y-6">
+                <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Proposer un
+                    trajet</a>
+                <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Les Propositions</a>
+                <a href="#" class="block text-lg font-medium text-gray-700 hover:text-teal-primary">Mes Demandes</a>
+
+                <div class="pt-6 border-t border-gray-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="style/assets/avatar.jpg" alt="Avatar Maram Bousalem" 
+                            class="w-14 h-14 rounded-full object-cover">
+                        <div>
+                            <div class="font-bold text-lg">Maram Bousalem</div>
+                            <div class="text-sm text-gray-text">Conducteur</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-teal-primary hover:bg-teal-dark text-white py-3 rounded-full font-semibold transition">
+                        Déconnexion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <!-- Gros cercle flou teal exactement comme sur la landing page -->
+        <div class="absolute w-[1400px] h-[750px] bg-teal-dark opacity-30 rounded-full blur-3xl -top-40 -left-80"></div>
+        <!-- Petit cercle supplémentaire (optionnel, rend le rendu encore plus proche) -->
+        <div
+            class="absolute w-96 h-96 bg-teal-primary opacity-20 rounded-full blur-3xl top-60 -right-32 hidden lg:block">
+        </div>
+    </div>
+    <!-- Script pour ouvrir/fermer le menu hamburger -->
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const svg = this.querySelector('svg');
+            svg.innerHTML = svg.innerHTML.includes('M4 6h16')
+                ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`
+                : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+        });
+    </script>
 
   <!-- ====================== MAIN CONTENT - Formulaire ====================== -->
   <main class="flex-1 flex items-center justify-center py-10 px-4 sm:py-16 relative z-10">
