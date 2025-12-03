@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+
+    --TitrePrincipale:#0F2F2F;
+    --Titre1:#000000;
+    /* Couleurs personnalisées */
+    --color-teal-primary: #4CA7A9;
+    --color-teal-dark: #3F8C8D;
+    --color-teal-darker: #0F2F2F;
+    --color-gray-text: #5A7070;
+    --color-bg-light: #E7F1F1;
+    
+    /* Polices personnalisées */
+    --font-family-outfit: 'Outfit', sans-serif;
+    --font-family-roboto: 'Roboto', sans-serif;
+
+/* Custom styles to complement Tailwind */
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Smooth transitions */
+* {
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+/* Input focus styles */
+input:focus {
+    outline: none;
+}
+
+/* Remove default button styles */
+ 
+
+ /* Colors exactes de l'image */
+:root {
+    --mint-light: #C8E0DF;
+    --mint-card: #D1E8E6;
+    --teal: #5DB5B0;
+    --teal-dark: #4A9895;
+    --gray-900: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--mint-light);
+}
+
+/* Header Styles */
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px;
+    background-color: white;
+    border: 1.5px solid var(--teal);
+    border-radius: 24px;
+    color: var(--teal);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #f0f9f9;
+}
+
+.disconnect-btn {
+    padding: 8px 20px;
+    background-color: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.disconnect-btn:hover {
+    background-color: var(--teal-dark);
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background-color: var(--mint-card);
+    border-radius: 25px;
+    border: 1px solid rgba(93, 181, 176, 0.2);
+}
+
+.search-container input {
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    border: none;
+}
+
+.search-container input::placeholder {
+    color: #666;
+}
+
+/* Ambassador Cards */
+.ambassador-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px;
+    background-color: var(--mint-card);
+    border: 2px solid rgba(93, 181, 176, 0.3);
+    border-radius: 12px;
+}
+
+.avatar-circle {
+    width: 70px;
+    height: 70px;
+    background-color: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ranking Card */
+.ranking-card {
+    background-color: var(--mint-card);
+    border: 2px solid rgba(93, 181, 176, 0.3);
+    border-radius: 16px;
+    padding: 28px 32px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    font-size: 16px;
+    color: var(--gray-900);
+}
+
+.top5-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Add Event Button */
+.add-event-btn {
+    padding: 12px 36px;
+    background-color: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer a {
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-btn div {
+        display: none;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+}   
+
+
+
+}
